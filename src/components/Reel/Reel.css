@@ -1,0 +1,24 @@
+.reel-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+#reelButton {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #04d326;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+#reelButton:hover {
+    background-color: #b3005a;
+  }

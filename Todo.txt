@@ -1,0 +1,13 @@
+
+general
+    colors
+    image placement.
+    demo reel buttons.
+    footer floating. 
+    nav floating
+    
+Mobile
+    nav bar under small menu?
+    corners.
+    buttons smaller.
+    font size.
