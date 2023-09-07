@@ -1,13 +1,5 @@
+mobile: 
+Responsiveness (nav bar collapse to burger menu on smaller screens)
 
-general
-    colors
-    image placement.
-    demo reel buttons.
-    footer floating. 
-    nav floating
-    
-Mobile
-    nav bar under small menu?
-    corners.
-    buttons smaller.
-    font size.
+not mobile: 
+Highlighting the current section on the navbar when scrolling
