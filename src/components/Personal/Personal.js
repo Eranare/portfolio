@@ -1,6 +1,7 @@
 
 function Personal(){
     return(
+        <content className="personal-container">
         <p>hDeserunt mollit anim id est laborum, sed ut perspiciatis unde omnis iste.
 
         Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
@@ -10,6 +11,7 @@ function Personal(){
         Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
         
         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
+        </content>
     )
 }
 export default Personal;

@@ -2,9 +2,9 @@ const samples = [
 
     {
         id: 1,
-        title: 'Sample 1',
+        title: 'Absolution',
         description: 'Description for Sample 1',
-        fileUrl: '/audio/sample1.mp3'
+        fileUrl: '/audio/Absolution.mp3'
     },
     {
         id: 2,
@@ -18,6 +18,33 @@ const samples = [
         description: 'Descriptoion for thingy 3',
         fileUrl: 'audio/sample3.mp3'
     },
+
+    {
+        id: 4,
+        title: 'sample 4',
+        description: 'Descriptoion for thingy 3',
+        fileUrl: 'audio/sample3.mp3'
+    },
+
+    {
+        id: 5,
+        title: 'sample 5',
+        description: 'Descriptoion for thingy 2',
+        fileUrl: 'audio/sample2.mp3'
+    },
+    {
+        id: 6,
+        title: 'sample 6',
+        description: 'Descriptoion for thingy 3',
+        fileUrl: 'audio/sample3.mp3'
+    },
+    {
+        id: 7,
+        title: 'sample 7',
+        description: 'Descriptoion for thingy 7',
+        fileUrl: 'audio/sample2.mp3'
+    },
+
 
   ];
 
