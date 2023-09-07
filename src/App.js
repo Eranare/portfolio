@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
+import Personal from './components/Personal/Personal';
 import Featured from './components/Featured/Featured';
 import Reel from './components/Reel/Reel';
 import Contact from './components/Contact/Contact';
@@ -34,10 +35,8 @@ function App() {
         <NavBar/>
           
         <Header id="home" />
-        <Button variant="contained" color="primary">
-          Click me!
-        </Button>
-        Opvulling hier
+        <Personal id="about"/>
+        
         <Featured id= "featured"/>
         <Reel samples={samples} id="reel"/>
         <Contact id = "contact"/>

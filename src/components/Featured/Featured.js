@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Featured.css";
 import Button from '@mui/material/Button';
 
 
@@ -8,7 +9,7 @@ function Featured(props){
         <div id={props.id}>
             <div id="featured_container">
 
-                <Button variant = "contained" id ="reelButton">Play</Button>
+                <Button variant = "contained" id ="featuredButton">Play</Button>
                 <h4>featured demo</h4>
                 <p>description</p>
             </div>

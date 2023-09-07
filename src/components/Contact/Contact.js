@@ -1,5 +1,6 @@
 import React from 'react';
 import './Contact.css';
+import Button from '@mui/material/Button';
 
 function Contact(props) {
   return (
@@ -22,7 +23,7 @@ function Contact(props) {
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
 
-        <button type="submit">Send</button>
+        <Button type="submit" id="contact-button">Send</Button>
       </form>
     </div>
     </div>

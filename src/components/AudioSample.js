@@ -1,8 +1,10 @@
 // AudioSample.js
+
+import Button from '@mui/material/Button';
 function AudioSample({ data }) {
     return (
       <div>
-        <button id ="reelButton">Play</button>
+        <Button id ="reelButton">Play</Button>
         <h4>{data.title}</h4>
         <p>{data.description}</p>
       </div>
