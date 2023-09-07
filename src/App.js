@@ -33,13 +33,12 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <NavBar/>
-          
         <Header id="home" />
+        <br></br><br></br>
         <Personal id="about"/>
-        
-        <Featured id= "featured"/>
-        <Reel samples={samples} id="reel"/>
-        <Contact id = "contact"/>
+        {/*}<Featured id="featured"/>{*/}
+        <Reel id="reel" samples={samples} />
+        <Contact id ="contact"/>
         <Footer id="footer" />
       </ThemeProvider>
     </div>

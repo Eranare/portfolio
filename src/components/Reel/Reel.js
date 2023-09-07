@@ -8,7 +8,7 @@ function Reel({ samples }, props) {
   return (
     <div id={props.id}>
      
-            <div className="reel-container">
+            <div className="reel-container" id="reel">
             
             {samples.map(sample => <AudioSample key={sample.id} data={sample} />)}
             

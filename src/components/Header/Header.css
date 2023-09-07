@@ -3,7 +3,7 @@
     width: 100vw;
     max-width: 75rem;
     margin: 0 auto;
-    overflow: hidden;
+    
 }
 
 .profile{ 
@@ -13,6 +13,7 @@
     right: 0;
     object-fit: cover;
     height: 100vh;
+    
 }
 
 .headerContent{
@@ -34,21 +35,25 @@
 .acteur{
     color: yellow;
 }
-.headerText{
-    
-}
+
 .headerPara{
     font-size: medium;
     font-weight: 100; 
 }
 
-.headerBtn{
-    background-color: antiquewhite;
-    margin: 1rem 0;
-    padding: 0.75rem 1.5rem;
+.headerBtn-container{
     border:none;
     border-radius: 2rem;
     width: 10rem;
+    margin: 1rem 0;
+    box-shadow: 0.75rem 0.75rem 1rem black;
+}
+
+.headerBtn{
+    background-color: antiquewhite;
+    
+    
+    
 }
 .headerBtnImg{
     object-fit: cover;
