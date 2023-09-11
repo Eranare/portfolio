@@ -29,6 +29,7 @@ function AudioSample({ data }) {
 
     const handleProgress = (state) => {
       setPlayed(state.played);
+      setSliderValue(state.played * 100); // Update the sliderValue here
     };
   const [sliderValue, setSliderValue] = useState(0); // New state for the slider's visual value
     const formatDuration = (seconds) => {
