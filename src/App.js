@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 //Imports
-import * as React from "react";
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 
 import NavBar from './components/NavBar/NavBar';
@@ -29,15 +29,17 @@ const theme = createTheme({
 const drawerWidth = 240;
 
 function App() {
+  const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null); // Initialize with null
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <NavBar/>
-        <Header id="home" />
+        <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId}/>
+        <br></br><br></br>
         <br></br><br></br>
         <Personal id="about"/>
-        {/*}<Featured id="featured"/>{*/}
-        <Reel id="reel" samples={samples} />
+        {/*}<Featured id="featured" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />{*/}
+        <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
         <Contact id ="contact"/>
         <Footer id="footer" />
       </ThemeProvider>
@@ -45,7 +47,11 @@ function App() {
   );
 }
 
-
+//ToDo:  
+//- remove the <br>
+//- audio should stop if another gets played.
+//- functionality of contact form.
+//- overall styling.    
 
 
 export default App;

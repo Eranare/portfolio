@@ -1,19 +1,19 @@
 import React from 'react';
-import "./Featured.css";
-import Button from '@mui/material/Button';
+import './Featured.css';
+import AudioSample from '../AudioSample';
 
+function Featured({ samples }) {
+  // Filter the samples array to include only the one with id 0
+  const featuredSample = samples.find(sample => sample.id === 0);
 
-
-function Featured(props){
-    return(
-        <div id={props.id}>
-            <div id="featured_container">
-
-                <Button variant = "contained" id ="featuredButton">Play</Button>
-                <h4>featured demo</h4>
-                <p>description</p>
-            </div>
-        </div>
-    )
+  return (
+    <div id="featured">
+      <div className="featured_container" id="reel">
+        {/* Use the id of the featured sample as the key */}
+        {featuredSample && <AudioSample key={featuredSample.id} data={featuredSample} />}
+      </div>
+    </div>
+  );
 }
+
 export default Featured;

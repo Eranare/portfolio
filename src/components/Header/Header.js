@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import Button from '@mui/material/Button';
 import message from "../../assets/chat_bubble.png"
-
+import Featured from '../Featured/Featured';
 
 function Header(props){
     return(
@@ -18,8 +18,10 @@ function Header(props){
           Neem Contact op
         </Button>
         </a>
+        <Featured samples={props.samples} />
     </div>
-    <img src= "https://picsum.photos/id/237/200/300" alt="profile" className="profile"></img>
+    <img src= '/img/2301_mbe_marcel jans_050.jpg' alt="profile" className="profile"></img>
+    
     
 </section>
     )

@@ -12,11 +12,19 @@ function AudioSample({ data }) {
     const [playing, setPlaying] = useState(false);
     const [volume, setVolume] = useState(0.8);
     const [played, setPlayed] = useState(0);
+    const [duration, setDuration] = useState(0);
     const playerRef = useRef(null);
 
     const handleProgress = (state) => {
         setPlayed(state.played);
     };
+
+    const formatDuration = (seconds) => {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = Math.floor(seconds % 60);
+      return [h, m > 9 ? m : h ? '0' + m : m || '0', s > 9 ? s : '0' + s].filter(Boolean).join(':');
+  };
 
     return (
       <div className="reel-player">
@@ -30,18 +38,24 @@ function AudioSample({ data }) {
           height="50px"
           controls={false}
           onProgress={handleProgress}
+          onDuration={(d)=> setDuration(d)}
         />
         <Button onClick={() => setPlaying(!playing)}>
           {playing ? <PauseIcon /> : <PlayArrowIcon />}
         </Button>
-        <Slider
-          value={played * 100}
-          onChange={(e, newValue) => {
-            const seekTo = newValue / 100;
-            playerRef.current.seekTo(seekTo);
-            setPlayed(seekTo);
-          }}
-        />
+        <div style={{ position: 'relative' }}>
+          <Slider
+            value={played * 100}
+            onChange={(e, newValue) => {
+              const seekTo = newValue / 100;
+              playerRef.current.seekTo(seekTo);
+              setPlayed(seekTo);
+            }}
+          />
+          <div style={{ position: 'absolute', top: '20px', right: '5px' }}>
+            {formatDuration(played * duration)} / {formatDuration(duration)}
+          </div>
+        </div>
         <Button onClick={() => setVolume(volume > 0 ? 0 : 0.8)}>
           {volume > 0 ? <VolumeUp /> : <VolumeOff />}
         </Button>
@@ -56,3 +70,6 @@ function AudioSample({ data }) {
 }
 
   export default AudioSample;
+
+
+  
