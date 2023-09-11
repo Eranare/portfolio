@@ -1,3 +1,4 @@
+//Featured.js
 import React from 'react';
 import './Featured.css';
 import AudioSample from '../AudioSample';

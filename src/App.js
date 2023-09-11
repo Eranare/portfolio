@@ -2,12 +2,12 @@
 import './App.css';
 //Imports
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+
 
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
 import Personal from './components/Personal/Personal';
-import Featured from './components/Featured/Featured';
+
 import Reel from './components/Reel/Reel';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <NavBar/>
-        <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId}/>
+        <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
         <br></br><br></br>
         <br></br><br></br>
         <Personal id="about"/>
@@ -42,6 +42,8 @@ function App() {
         <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
         <Contact id ="contact"/>
         <Footer id="footer" />
+
+        
       </ThemeProvider>
     </div>
   );

@@ -19,6 +19,7 @@ function Header(props){
         </Button>
         </a>
         <Featured samples={props.samples} />
+
     </div>
     <img src= '/img/2301_mbe_marcel jans_050.jpg' alt="profile" className="profile"></img>
     
