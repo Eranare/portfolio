@@ -24,4 +24,5 @@ yarn-error.log*
 
 .vercel
 
-public/*
+public/audio/*
+public/img/*
