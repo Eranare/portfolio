@@ -12,7 +12,7 @@ import VolumeOff from '@mui/icons-material/VolumeOff';
 function AudioSample({ data }) {
     const { currentlyPlayingId, playMedia, stopMedia } = useMediaContext();
     const isPlaying = currentlyPlayingId === data.id;
-
+    const [isDragging, setIsDragging] = useState(false);
     const handlePlayButtonClick = () => {
       if (isPlaying) {
         stopMedia();
@@ -28,8 +28,14 @@ function AudioSample({ data }) {
 
 
     const handleProgress = (state) => {
-      setPlayed(state.played);
-      setSliderValue(state.played * 100); // Update the sliderValue here
+      if (!isDragging) { // Only update if the user is not dragging the slider
+        setPlayed(state.played);
+        setSliderValue(state.played * 100);
+      }
+    };
+
+    const handleMediaEnd = () => {
+      stopMedia(); // This will set the media to stopped and the button will reflect the change
     };
   const [sliderValue, setSliderValue] = useState(0); // New state for the slider's visual value
     const formatDuration = (seconds) => {
@@ -53,18 +59,24 @@ function AudioSample({ data }) {
           controls={false}
           onProgress={handleProgress}
           onDuration={(d) => setDuration(d)}
+          onEnded={handleMediaEnd} // Add this line
         />
         <Button onClick={handlePlayButtonClick}>
           {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
         </Button>
         <div style={{ position: 'relative' }}>
-          <Slider
-            value={sliderValue} // Use the local state for the slider's value
-            onChange={(e, newValue) => setSliderValue(newValue)} // Update the local state as the user drags the slider
-            onChangeCommitted={(e, newValue) => { // Update the playback position only when the user releases the slider
+        <Slider
+            value={sliderValue}
+            onChange={(e, newValue) => {
+              setIsDragging(true);
+              setSliderValue(newValue);
+              const newPlayed = newValue / 100;
+              setPlayed(newPlayed); // Update the played state here
+            }}
+            onChangeCommitted={(e, newValue) => {
               const seekTo = newValue / 100;
               playerRef.current.seekTo(seekTo);
-              setPlayed(seekTo);
+              setIsDragging(false);
             }}
           />
           <div style={{ position: 'absolute', top: '20px', right: '5px' }}>

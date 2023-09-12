@@ -1,10 +1,13 @@
-.featured-container {
-    padding: 20px;
+.featured_container {
     background-color: #f9f9f9;
-    border-radius: 8px;
-    max-width: 300px;
-    margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1;
+    border:black solid 2px;
+    border-radius: 2rem;
+    box-shadow: 0.25rem 0.25rem 0rem rgba(0, 0, 0, 0.644);
+    color:black;
   }
 
   #featuredButton {

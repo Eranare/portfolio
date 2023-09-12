@@ -11,6 +11,7 @@ import Personal from './components/Personal/Personal';
 import Reel from './components/Reel/Reel';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import samples from './data/AudioSamples';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -30,6 +31,11 @@ const drawerWidth = 240;
 
 function App() {
   const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null); // Initialize with null
+
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const togglePrivacyPolicy = () => {
+    setShowPrivacyPolicy(!showPrivacyPolicy);
+  };
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
@@ -42,6 +48,12 @@ function App() {
         <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
         <Contact id ="contact"/>
         <Footer id="footer" />
+        <button onClick={togglePrivacyPolicy}>
+        Privacyverklaring
+      </button>
+
+      {showPrivacyPolicy && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
+      
 
         
       </ThemeProvider>
@@ -50,10 +62,22 @@ function App() {
 }
 
 //ToDo:  
-//- remove the <br>
-//- audio should stop if another gets played.
-//- functionality of contact form.
-//- overall styling.    
 
+//- audio should stop if another gets played. done
+//- Featured: what to do with that.
+//- Resize header image. and other loading tricks.
+//- replace Content tag with <div className> if theres no div wrapped already.
+//- functionality of contact form. half done, requires email set up.
+//- responsiveness for mobile, half done, needs improvement, navbar should become a menu.
+//- overall styling, remove the <br> spam.
+//- Check and address console warnings and errors periodically.
+//- Error handling.
+//- monitoring.
+//- SEO Search engine optimization, Server-side rendering.
+//- performance test.
+//- implement nginx and certbot.
+//- Accessibility.
+//- security stuff. handling the form submission for both front and backend, ReCaptcha. 
+//- Finally get domain name and host it
 
 export default App;
