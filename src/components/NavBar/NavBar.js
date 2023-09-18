@@ -5,7 +5,7 @@ import message from "../../assets/chat_bubble.png"
 
 function NavBar() {
     return (
-      <div className="navbar">
+      <nav className="navbar">
         <img src="https://picsum.photos/id/237/200/300" className = "logo" alt= "logo"></img>
         <div className="desktopMenu">
           <a href="#header" className="desktopMenuListItem">Home</a>
@@ -18,7 +18,7 @@ function NavBar() {
             Contact
           </Button>
         </a>
-      </div>
+      </nav>
     );
   }
 export default NavBar;

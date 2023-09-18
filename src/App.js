@@ -11,7 +11,7 @@ import Personal from './components/Personal/Personal';
 import Reel from './components/Reel/Reel';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+//import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import samples from './data/AudioSamples';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -27,7 +27,7 @@ const theme = createTheme({
   },
 });
 
-const drawerWidth = 240;
+//const drawerWidth = 240;
 
 function App() {
   const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null); // Initialize with null
@@ -47,13 +47,7 @@ function App() {
         {/*}<Featured id="featured" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />{*/}
         <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
         <Contact id ="contact"/>
-        <Footer id="footer" />
-        <button onClick={togglePrivacyPolicy}>
-        Privacyverklaring
-      </button>
-
-      {showPrivacyPolicy && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
-      
+        <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
 
         
       </ThemeProvider>
@@ -68,10 +62,11 @@ function App() {
 //- Resize header image. and other loading tricks.
 //- replace Content tag with <div className> if theres no div wrapped already.
 //- functionality of contact form. half done, requires email set up.
+//- considering Mailjet for mail service.
 //- responsiveness for mobile, half done, needs improvement, navbar should become a menu.
 //- overall styling, remove the <br> spam.
 //- Check and address console warnings and errors periodically.
-//- Error handling.
+//- Error handling. This includes making sure the backend is running, or restart it, what to do with the message on a failed attempt, it shouldnt be cleared. 
 //- monitoring.
 //- SEO Search engine optimization, Server-side rendering.
 //- performance test.

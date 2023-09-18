@@ -6,12 +6,12 @@ import Featured from '../Featured/Featured';
 
 function Header(props){
     return(
-<section id="header">
+<div id="header">
     
     <div className ="headerContent">
         <span className= "hello"> Hoi, </span>
         <span className="headerText">Stem<span className="acteur">Acteur</span>. Text hier, filler</span>
-        <p className="headerPara">ik ben een stemacteur met een diverse range</p>
+        <p className="headerPara">Intro zin?</p>
         <a href="#contact" alt="neem contact op." className="headerBtn-container">
         <Button variant="contained" className= "headerBtn">
           <img  src={message} alt="chat_bubble" class="headerBtnImg"></img>
@@ -19,12 +19,10 @@ function Header(props){
         </Button>
         </a>
         <Featured samples={props.samples} />
-
     </div>
     <img src= '/img/2301_mbe_marcel jans_050.jpg' alt="profile" className="profile"></img>
     
-    
-</section>
+</div>
     )
 }
 export default Header;

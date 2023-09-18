@@ -1,11 +1,19 @@
 import React from 'react';
 import './Footer.css';
-function Footer(){
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+function Footer({togglePrivacyPolicy, showPrivacyPolicy}){
     return(
-    <content className="footer-container">
+    <footer className="footer-container">
         <p>footer here</p>
         <p>copyright mention</p>
-    </content>
+        <button onClick={togglePrivacyPolicy}>
+        Privacyverklaring
+      </button>
+
+      {showPrivacyPolicy && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
+      
+
+    </footer>
     )
 }
 export default Footer;
