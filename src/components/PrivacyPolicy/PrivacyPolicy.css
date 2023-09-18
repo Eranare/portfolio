@@ -8,9 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's on top */
+    z-index: 9999; /* Ensure it's on top */
   }
-  
+
   .privacy-policy-content {
     background-color: #fff;
     padding: 20px;
@@ -20,4 +20,3 @@
     border-radius: 8px;
     color: black;
   }
-  
