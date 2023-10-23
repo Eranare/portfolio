@@ -8,10 +8,11 @@
     justify-content: space-between;
     position: sticky;
     top: 0;
-    max-width: 75rem;
+    max-width: 100vw;
     background: rgba(30, 40, 40, 0.493);
     border: none;
-    border-radius: 10rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius:1rem;
 }
 
 .logo {

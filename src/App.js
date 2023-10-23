@@ -19,7 +19,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ff4400',
+      main: '#e64747',
     },
     secondary: {
       main: '#00ff44',
@@ -74,5 +74,11 @@ function App() {
 //- Accessibility.
 //- security stuff. handling the form submission for both front and backend, ReCaptcha. 
 //- Finally get domain name and host it
+
+
+
+//- potential color combos main and secondary with google color picker
+// #e64747
+//88, 101, 110
 
 export default App;
