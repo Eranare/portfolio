@@ -1,19 +1,33 @@
 import React from 'react';
-import './PrivacyPolicy.css'; // Assuming you'll add some styles
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 function PrivacyPolicy({ onClose }) {
-  // Function to handle the backdrop click
-  const handleBackdropClick = (e) => {
-    if (e.target.classList.contains('privacy-policy-modal')) {
-      onClose();
-    }
-  };
-
   return (
-    <div className="privacy-policy-modal" onClick={handleBackdropClick}>
-
-        <div className="privacy-policy-content">
-  <h2>Privacyverklaring</h2>
+    <Modal
+      open={true}
+      onClose={onClose}
+      aria-labelledby="privacy-policy-title"
+      aria-describedby="privacy-policy-description"
+    >
+      <Box 
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          bgcolor: 'background.paper',
+          boxShadow: 24,
+          p: 4,
+          maxWidth: '500px',
+          maxHeight: '80vh',
+          overflowY: 'auto',
+          borderRadius: '8px',
+          color: 'black'
+        }}
+      >
+        <h2 id="privacy-policy-title">Privacyverklaring</h2>
   <p>
     StemActeurMarcel.nl is verantwoordelijk voor de verwerking van persoonsgegevens zoals weergegeven in deze privacyverklaring.
   </p>
@@ -100,11 +114,11 @@ function PrivacyPolicy({ onClose }) {
     StemActeurMarcel.nl wil u er tevens op wijzen dat u de mogelijkheid heeft om een klacht in te dienen bij de nationale toezichthouder, de Autoriteit Persoonsgegevens. Dat kan via de volgende link: 
     <a href="https://autoriteitpersoonsgegevens.nl/nl/contact-met-de-autoriteit-persoonsgegevens/tip-ons">https://autoriteitpersoonsgegevens.nl/nl/contact-met-de-autoriteit-persoonsgegevens/tip-ons</a>
   </p>
-</div>
-
-        <button onClick={onClose}>Close</button>
-      </div>
-    
+  <Button variant="contained" color="primary" onClick={onClose}>
+          Close
+        </Button>
+      </Box>
+    </Modal>
   );
 }
 

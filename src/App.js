@@ -3,34 +3,27 @@ import './App.css';
 //Imports
 import React, { useState } from 'react';
 
-
+import theme from './Theme'; // Import the theme
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
 import Personal from './components/Personal/Personal';
 
 import Reel from './components/Reel/Reel';
+import Prices from './components/Prices/Prices';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 //import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import samples from './data/AudioSamples';
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider} from '@mui/material/styles';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#e64747',
-    },
-    secondary: {
-      main: '#00ff44',
-    },
-  },
-});
+import {Grid} from '@mui/material';
+
 
 //const drawerWidth = 240;
 
 function App() {
-  const [currentlyPlayingId, setCurrentlyPlayingId] = useState(null); // Initialize with null
+  const [setCurrentlyPlayingId] = useState(null); // Initialize with null
 
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
   const togglePrivacyPolicy = () => {
@@ -39,16 +32,20 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <NavBar/>
-        <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-        <br></br><br></br>
-        <br></br><br></br>
-        <Personal id="about"/>
-        {/*}<Featured id="featured" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />{*/}
-        <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-        <Contact id ="contact"/>
-        <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
-
+      <Grid container>
+    <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+        <NavBar />
+    </Grid>
+    <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
+            <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
+            <Personal id="about"/>
+            
+            <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
+            <Prices id="prices"/>
+            <Contact id ="contact"/>
+            <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
+          </Grid>
+        </Grid>
         
       </ThemeProvider>
     </div>

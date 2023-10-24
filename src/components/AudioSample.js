@@ -8,6 +8,7 @@ import PauseIcon from '@mui/icons-material/Pause';
 import Slider from '@mui/material/Slider';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 import VolumeOff from '@mui/icons-material/VolumeOff';
+import { useTheme } from '@mui/material/styles'; // Import useTheme
 
 function AudioSample({ data }) {
     const { currentlyPlayingId, playMedia, stopMedia } = useMediaContext();
@@ -45,10 +46,10 @@ function AudioSample({ data }) {
       return [h, m > 9 ? m : h ? '0' + m : m || '0', s > 9 ? s : '0' + s].filter(Boolean).join(':');
     };
   
-
+    const theme = useTheme(); // Use the theme
     return (
       <div className="reel-player">
-        <h4>{data.title}</h4>
+        <h4 style={{textAlign: 'center'}}>{data.title}</h4>
         <ReactPlayer
           ref={playerRef}
           url={data.fileUrl}
@@ -61,7 +62,7 @@ function AudioSample({ data }) {
           onDuration={(d) => setDuration(d)}
           onEnded={handleMediaEnd} // Add this line
         />
-        <Button onClick={handlePlayButtonClick}>
+        <Button onClick={handlePlayButtonClick} color="accent">
           {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
         </Button>
         <div style={{ position: 'relative' }}>
@@ -78,20 +79,42 @@ function AudioSample({ data }) {
               playerRef.current.seekTo(seekTo);
               setIsDragging(false);
             }}
+            sx={{
+              '& .MuiSlider-thumb': {
+                color: theme.palette.accent.main,
+              },
+              '& .MuiSlider-track': {
+                color: theme.palette.accent.main,
+              },
+              '& .MuiSlider-rail': {
+                color: theme.palette.action.disabled,
+              }
+            }}
           />
           <div style={{ position: 'absolute', top: '20px', right: '5px' }}>
             {formatDuration(played * duration)} / {formatDuration(duration)}
           </div>
         </div>
-        <Button onClick={() => setVolume(volume > 0 ? 0 : 0.8)}>
+        <Button onClick={() => setVolume(volume > 0 ? 0 : 0.8)} color="accent">
           {volume > 0 ? <VolumeUp /> : <VolumeOff />}
         </Button>
         <Slider
           value={volume * 100}
           onChange={(e, newValue) => setVolume(newValue / 100)}
+          sx={{
+            '& .MuiSlider-thumb': {
+              color: theme.palette.accent.main,
+            },
+            '& .MuiSlider-track': {
+              color: theme.palette.accent.main,
+            },
+            '& .MuiSlider-rail': {
+              color: theme.palette.action.disabled,
+            }
+          }}
         />
         
-        <p>{data.description}</p>
+        <p style={{ textAlign: 'center' }}>{data.description}</p>
       </div>
     );
 }

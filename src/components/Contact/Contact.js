@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import './Contact.css';
 import Button from '@mui/material/Button';
-import axios from 'axios'; // Import axios
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 function Contact(props) {
   const [formData, setFormData] = useState({
@@ -22,38 +25,78 @@ function Contact(props) {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/submit-form', formData);
-      console.log(response.data); // You can show a success message to the user based on this response
-      setFormData({ name: '', email: '', message: '' }); // Reset the form
+      console.log(response.data);
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
-      // You can show an error message to the user here
     }
   };
 
   return (
-    <div id={props.id}>
-      <div className="contact-container">
-        <h2>Contact Me</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required></textarea>
-          </div>
-
-          <Button type="submit" id="contact-button">Send</Button>
-        </form>
-      </div>
-    </div>
+    <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          bgcolor: '#f9f9f9',
+          p: 3,
+          borderRadius: 1,
+          boxShadow: 1,
+        }}
+      >
+        <Typography component="h1" variant="h5">
+          Contact Me
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            multiline
+            rows={4}
+            id="message"
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 3 }}
+          >
+            Send
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 }
 

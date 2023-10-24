@@ -1,19 +1,30 @@
 import React from 'react';
-import './Footer.css';
+import Button from '@mui/material/Button';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
-function Footer({togglePrivacyPolicy, showPrivacyPolicy}){
-    return(
-    <footer className="footer-container">
-        <p>footer here</p>
-        <p>copyright mention</p>
-        <button onClick={togglePrivacyPolicy}>
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles'; // Import useTheme
+
+function Footer({ togglePrivacyPolicy, showPrivacyPolicy }) {
+  const theme = useTheme(); // Use the theme
+
+  return (
+    <Box 
+      component="footer" 
+      sx={{
+        background: theme.palette.primary.main, // Use secondary color from theme
+        padding: '1rem',
+        textAlign: 'center'
+      }}
+    >
+      <p>footer here</p>
+      <p>copyright mention</p>
+      <Button variant="contained" color="secondary" onClick={togglePrivacyPolicy}>
         Privacyverklaring
-      </button>
+      </Button>
 
       {showPrivacyPolicy && <PrivacyPolicy onClose={togglePrivacyPolicy} />}
-      
-
-    </footer>
-    )
+    </Box>
+  );
 }
+
 export default Footer;
