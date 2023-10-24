@@ -33,20 +33,18 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
       <Grid container>
-    <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-        <NavBar />
-    </Grid>
-    <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
-            <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-            <Personal id="about"/>
-            
-            <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-            <Prices id="prices"/>
-            <Contact id ="contact"/>
-            <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
-          </Grid>
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+          <NavBar />
         </Grid>
-        
+        <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
+          <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
+          <Personal id="about"/>        
+          <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
+          <Prices id="prices"/>
+          <Contact id ="contact"/>
+          <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
+        </Grid>
+      </Grid> 
       </ThemeProvider>
     </div>
   );
