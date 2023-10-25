@@ -1,51 +1,21 @@
-// In theme.js
+// theme.js
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
+const getTheme = (primaryColor = '#34495E', secondaryColor = '#E0E0E0', accentColor = '#3498DB') => {
+  return createTheme({
     palette: {
       primary: {
-        main:  '#34495E',
+        main: primaryColor,
       },
       secondary: {
-        main: '#E0E0E0',
+        main: secondaryColor,
       },
       accent: {
-        main: '#3498DB',
+        main: accentColor,
       },
-      text: {
-        primary: '#000000',
-      },
+      // ... other palette settings ...
     },
   });
+};
 
-export default theme;
-
-/*
-
-Modern & Minimalistic:
-Primary: #2C3E50 (Dark Blue)
-Secondary: #ECF0F1 (Light Gray)
-Accent: #E74C3C (Red)
-
-Corporate Blue:
-Primary: #34495E (Navy Blue)
-Secondary: #E0E0E0 (Gray)
-Accent: #3498DB (Sky Blue)
-
-Earth Tones:
-Primary: #5D6D7E (Slate Gray)
-Secondary: #AEB6BF (Light Gray)
-Accent: #58D68D (Mint Green)
-
-Elegant & Timeless:
-Primary: #1B2631 (Charcoal)
-Secondary: #BFC9CA (Silver)
-Accent: #7D6608 (Golden Brown)
-
-Fresh & Clean:
-Primary: #154360 (Deep Blue)
-Secondary: #D5DBDB (Off White)
-Accent: #28B463 (Sea Green) 
-
-*/
-
+export default getTheme;

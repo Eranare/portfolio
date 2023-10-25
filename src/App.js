@@ -20,10 +20,20 @@ import { ThemeProvider} from '@mui/material/styles';
 
 import {Grid, Toolbar} from '@mui/material';
 
+import ColorPicker from './components/ColourPicker/ColorPicker';
+import getTheme from './Theme.js';
+
 
 //const drawerWidth = 240;
 
 function App() {
+
+  const [primaryColor, setPrimaryColor] = useState('#34495E');
+  const [secondaryColor, setSecondaryColor] = useState('#E0E0E0');
+  const [accentColor, setAccentColor] = useState('#3498DB');
+
+  const theme = getTheme(primaryColor, secondaryColor, accentColor);
+  console.log(theme);
   const [setCurrentlyPlayingId] = useState(null); // Initialize with null
 
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -44,6 +54,11 @@ function App() {
             <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} className="section-anchor" />
           </Grid>
         </Grid> 
+        <div style={{ position: 'fixed', bottom: '500px', right: '500px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <ColorPicker setColor={setPrimaryColor} />
+          <ColorPicker setColor={setSecondaryColor} />
+          <ColorPicker setColor={setAccentColor} />
+        </div>
       </ThemeProvider>
     </div>
   );
