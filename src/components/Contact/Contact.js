@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import { useTheme } from '@mui/material/styles'; // Import useTheme
 
 function Contact(props) {
   const [formData, setFormData] = useState({
@@ -31,10 +32,20 @@ function Contact(props) {
       console.error('Error submitting form:', error);
     }
   };
+  const theme = useTheme(); // Use the theme
+
 
   return (
+    <Box 
+    
+    sx={{
+      background: theme.palette.secondary.main, // Use secondary color from theme
+      padding: '1rem',
+      textAlign: 'center'
+    }}
+  >
     <Container component="main" maxWidth="xs">
-      <Box
+      <Box id="contact"
         sx={{
           marginTop: 8,
           display: 'flex',
@@ -97,6 +108,7 @@ function Contact(props) {
         </Box>
       </Box>
     </Container>
+    </Box>
   );
 }
 
