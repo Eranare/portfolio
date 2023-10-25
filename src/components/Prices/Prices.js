@@ -5,7 +5,7 @@ function Prices() {
     const theme = useTheme();
     
     return (
-        <Box sx={{ backgroundColor: theme.palette.primary.main, padding: '2rem', color: theme.palette.secondary.main }}>
+        <Box id="prices" sx={{ backgroundColor: theme.palette.primary.main, padding: '2rem', color: theme.palette.secondary.main }}>
             <Typography variant="h4" gutterBottom>
                 Tarieven
             </Typography>

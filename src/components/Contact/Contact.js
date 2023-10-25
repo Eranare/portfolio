@@ -34,7 +34,7 @@ function Contact(props) {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Box
+      <Box id="contact"
         sx={{
           marginTop: 8,
           display: 'flex',

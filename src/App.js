@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import theme from './Theme'; // Import the theme
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
+import Featured from './components/Featured/Featured';
 import Personal from './components/Personal/Personal';
 
 import Reel from './components/Reel/Reel';
@@ -17,7 +18,7 @@ import samples from './data/AudioSamples';
 
 import { ThemeProvider} from '@mui/material/styles';
 
-import {Grid} from '@mui/material';
+import {Grid, Toolbar} from '@mui/material';
 
 
 //const drawerWidth = 240;
@@ -32,19 +33,17 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-      <Grid container>
-        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-          <NavBar />
-        </Grid>
-        <Grid item xs={10} sm={10} md={10} lg={10} xl={10}>
-          <Header id="home" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-          <Personal id="about"/>        
-          <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} />
-          <Prices id="prices"/>
-          <Contact id ="contact"/>
-          <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} />
-        </Grid>
-      </Grid> 
+        <NavBar position="sticky"/>
+        <Grid container>
+          <Grid item xs={12}>
+            <Header id="home"  className="section-anchor" />
+            <Personal id="about" className="section-anchor" />        
+            <Reel id="reel" samples={samples} setCurrentlyPlayingId={setCurrentlyPlayingId} className="section-anchor" />
+            <Prices id="prices"className="section-anchor" />
+            <Contact id="contact"className="section-anchor" />
+            <Footer id="footer" togglePrivacyPolicy={togglePrivacyPolicy} showPrivacyPolicy={showPrivacyPolicy} className="section-anchor" />
+          </Grid>
+        </Grid> 
       </ThemeProvider>
     </div>
   );
